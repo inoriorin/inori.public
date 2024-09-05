@@ -68,14 +68,58 @@
 ~~~
   7.1 - Geometry Spreadsheet 几何表格面板 - Primitives 基本属性
 ~~~
-![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_002.png)
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_003.png)
 ~~~
   7.2 - Group 组
 ~~~
-![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_002.png)
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_004.png)
+<br/>
+<br/>
+<br/>
+
+.8 &emsp; Unreal Niagara 获取摄像机位置（ Niagara でカメラ位置をもらえる ）
+~~~
+  8.1 - Camera Query - Camera Properties CPU/GPU
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_005.png)
 <br/>
 <br/>
 <br/>
  
+.9 &emsp; Houdini to Unreal 顶点色（ houdini を unreal に導入したあと頂点カラーの設置 ）
+~~~
+  9.1 - Unreal顶点色需要转换空间
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_006.png)
+<br/>
+<br/>
+<br/>
+ 
+.10 &emsp; Unreal Hlsl 声明函数
+~~~
+  10.1 - Unreal顶点色需要转换空间
+  https://ikrima.dev/ue4guide/graphics-development/shader-development/tips-tricks/
+ 
+  // 声明一个 输出 所输入值+1 的值 的函数
+
+  return 1 ;
+ 
+  }
+ 
+  float nyako (float x)
+  {
+  return x + 1 ; 
+ 
+  // 此为函数节点 需要暴露名为函数名（nyako）的端口 add 于引用端
+ 
+  float1 a = nyako(2) ;
+ 
+  return a ;
+
+~~~
+<img src=https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_008.png width=80% />
+<br/>
+<br/>
+<br/>
 
 
