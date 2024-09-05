@@ -121,5 +121,106 @@
 <br/>
 <br/>
 <br/>
+ 
+.11 &emsp; Unreal Material 逆 Tonemapping
+~~~
+  11.1 - 通过手动逆运算参数，并不精准
+  float3 A = (pow(Color,3)*3.4475) - (pow(Color,2)*2.7866)+(1.2281*Color-0.0056) ;
+~~~
+~~~
+  11.2 - 通过虚幻提供的逆函数 精准
+  // 需要提前include TonemapCommon头文件
+  return 1 ; 
+  }
+ 
+  #include "/Engine/Private/TonemapCommon.ush"
+ 
+  void aa1(){
+ 
+  //然后再使用该函数
+  return FilmToneMapInverse(col) ;
+~~~
+<br/>
+<br/>
+<br/>
+ 
+.12 &emsp; Unreal HLSL SubUV
+~~~
+  12.1 - 
+  //sub uv
+ 
+  float2 A = float2 ( 1 , 1 ) / GridNum  ;
+ 
+  float B = fmod ( floor ( Frame ) , GridNum.x ) ; 
+  // 上述为 先将帧数向下归整，后求与序列横向分布数量的余数，目的为计算当前帧停留在横向第几格的位置
+  // 该步骤可以如此理解 
+  // 当横向分布数量为4时，0帧与4的余数为0，1帧与4的余数为1，2帧与4的余数为2，如此类推，第四帧归零 ( 是横向逐帧前进播放的过程 ）
+
+  float C = floor ( A.x * floor ( Frame ) ) ;
+  //上述计算目的为得出当前帧停留在纵向第几排的位置
+  // 该步骤可以如此理解
+  // 当横向分布数量为4时，1/4等于0.25，第1帧时与横向数量乘积为0.25，向下归整为0，处在第1排，第10帧时为2，处在第3排
+ 
+  float2 D = A * ( uv + float2 ( B , C ) ) ;
+  // 上述计算将UV缩放为序列每格的大小 并按更上述的计算进行偏移，实现播放
+ 
+ 
+  float B1 = fmod ( floor ( Frame ) + 1 ,  GridNum.x ) ;
+  float C1 = floor ( A.x * ( floor ( Frame ) + 1 ) )  ;
+  float2 D2 =  A * ( uv + float2 ( B1 , C1 ) ) ; 
+ 
+  uvblend = D2 ; //在单帧计算时读取下一帧进行两帧的混合
+ 
+  nyalerp = frac ( Frame ) ;// 两帧混合时使用的lerp系数
+ 
+  return D ;
+~~~
+<br/>
+<br/>
+<br/>
+ 
+.13 &emsp; Houdini 模型ID排序
+~~~
+  13.1 - 基于对分离模型后合并 或 fuse 后，模型顶点ID顺序发生变化的情况思考
+  将 ID 定义进新的属性
+  int @newID ;
+  @newID = @ptnum ;
+  // @ptnum是point环境下 pointID，vertex环境下为vtxnum 
+~~~
+~~~
+  13.2 - 上述步骤结束后，正常编辑模型，于编辑的末尾 使用 sort 重新排序模型顶点序号
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_009.png)
+<br/>
+<br/>
+<br/>
+ 
+.14 &emsp; Unreal 随机函数
+~~~
+  14.1 - 以输入的值为随机种，输出随机值
+  return frac ( sin ( dot ( a1 , float2 ( 13 , 78.2 ) ) ) * 43760 ) ;
+~~~
+~~~
+  14.2 - 程序化纹理 参考
+  https://twitter.com/cmzw_/status/1555071863897722880
+  https://www.shadertoy.com/view/7ldyWn
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_010.png)
+<br/>
+<br/>
+<br/>
+ 
+.15 &emsp; Unreal LinearSine 线性正弦
+~~~
+  15.1 - 
+  float a = frac ( inputa + 0.25 ) ;
+ 
+  return lerp ( a * 2 , ( 1 - a ) * 2 , floor ( a * 2  ) ) ;
+~~~
+<br/>
+<br/>
+<br/>
+
+
 
 
