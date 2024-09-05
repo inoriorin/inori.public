@@ -1,4 +1,4 @@
-.1 &emsp; houdini 法线传递（丸になるの法線設置）<br>
+.1 &emsp; houdini 法线传递（ 丸になるの法線設置 ）<br/>
 ~~~
   1.1 - 使用vex语言 为模型设置法线
   @N = v@opinput1_N ; 
@@ -9,4 +9,16 @@
 ~~~
 ~~~
   1.2 - 使用 ray 节点 按最近距离传递属性
+  Ray ：射线节点 将A平面投影至B平面
+  Point Intersection Normal : A面延法线射线后求至B面的交点处法线信息 （将该交点法线信息传递回A）
 ~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_001.png)
+<br/>
+<br/>
+<br/>
+.2 &emsp; Blender 载入MMD PMX模型（ PMD のキャラを blender に読み込む ）<br/>
+~~~
+  1.1 - github - Blender MMDtools 插件
+  https://github.com/UuuNyaa/blender_mmd_tools
+~~~
+
