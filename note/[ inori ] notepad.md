@@ -59,6 +59,20 @@
 ~~~
   6.1 - System Location 模块
 ~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_002.png)
+<br/>
+<br/>
+<br/>
+ 
+.7 &emsp; Houdini 按材质分组（ マテリアルによって選択する ）
+~~~
+  7.1 - Geometry Spreadsheet 几何表格面板 - Primitives 基本属性
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_002.png)
+~~~
+  7.2 - Group 组
+~~~
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%201%20%5D%20notepad/image_002.png)
 <br/>
 <br/>
 <br/>
