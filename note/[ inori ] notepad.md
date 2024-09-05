@@ -97,7 +97,7 @@
  
 .10 &emsp; Unreal Hlsl 声明函数
 ~~~
-  10.1 - Unreal顶点色需要转换空间
+  10.1 - 
   https://ikrima.dev/ue4guide/graphics-development/shader-development/tips-tricks/
  
   // 声明一个 输出 所输入值+1 的值 的函数
