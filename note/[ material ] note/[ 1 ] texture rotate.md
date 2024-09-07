@@ -9,7 +9,7 @@ sin(∠A + ∠B) = sin∠A * cos∠B + cos∠A * sin∠B
 cos(∠A + ∠B) = cos∠A * cos∠B - sin∠A * sin∠B
 
 v.x = cos ( a1 + a2 ) = cos (a1) * cos (a2) - sin (a1) * sin (a2) = cos (a1) * x - sin (a1) * y ;
-v.x = sin ( a1 + a2 ) = sin (a1) * cos (a2) + cos (a1) * sin (a2) = sin (a1) * x + cos (a1) * y ;
+v.y = sin ( a1 + a2 ) = sin (a1) * cos (a2) + cos (a1) * sin (a2) = sin (a1) * x + cos (a1) * y ;
 
 根据角度转弧度公式：rad = deg * π / 180
 texcoord 二维旋转代码
