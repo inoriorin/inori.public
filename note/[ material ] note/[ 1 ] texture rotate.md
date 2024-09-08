@@ -12,6 +12,7 @@ v.x = cos ( a1 + a2 ) = cos (a1) * cos (a2) - sin (a1) * sin (a2) = cos (a1) * x
 v.y = sin ( a1 + a2 ) = sin (a1) * cos (a2) + cos (a1) * sin (a2) = sin (a1) * x + cos (a1) * y ;
 
 根据角度转弧度公式：rad = deg * π / 180
+ 
 texcoord 二维旋转代码
 
 // 变量声明
@@ -29,3 +30,4 @@ float2 texcoord_rotate = float2 (x,y) ;
 return texcoord_rotate ;
 
 ```
+![image](https://github.com/inoriorin/inori.public/blob/main/image/1/%5B%202%20%5D%20material/image_002.png)
