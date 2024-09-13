@@ -30,4 +30,6 @@ float2 texcoord_offset = ( offset * lerp(panner * in_time,panner,in_panner_switc
 float2 texcoord_clamp = {(lerp(texcoord_offset.x,saturate(texcoord_offset.x),in_clamp_x)),(lerp(texcoord_offset.y,saturate(texcoord_offset.y),in_clamp_y))} ;
  
 return texcoord_clamp ;
+ 
+```
 
