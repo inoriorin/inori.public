@@ -14,7 +14,7 @@ float2 texcoord_rotate = float2 (cx,cy) ;
 // return texcoord_rotate ;
  
 // 变量声明
-float2 tiling = {(in_tiling_x * in_dynamic_tx * texcoord_rotate.x),(in_tiling_y * in_dynamic_ty * texcoord_rotate.y)}  ;
+float2 tiling = {(in_tiling_x * in_dynamic_tx),(in_tiling_y * in_dynamic_ty)}  ;
 float2 scale = {(in_scale_x),(in_scale_y)} ;
 float1 panner = in_panner + in_dynamic_p ;
 float2 offset = {(in_offset_x),(in_offset_y)} ; // 用于修正部分 UV 溢出导致的问题
@@ -22,7 +22,7 @@ float2 offset = {(in_offset_x),(in_offset_y)} ; // 用于修正部分 UV 溢出�
 // transform
 float2 texcoord_tiling = tiling * ( ( texcoord_rotate - in_rotate_center ) * scale + in_rotate_center ) ;
 
-float2 offset_dir = { ( sin(frac(rotate) * 3.1415926 / 180 )) , ( cos(frac(rotate) * 3.1415926 / 180 )) } ;
+float2 offset_dir = { ( sin(frac(in_rotate) * 6.283 )) , ( cos(frac(in_rotate) * 6.283 )) } ;
  
 float2 texcoord_offset = ( offset_dir * lerp(panner * in_time,panner,in_panner_switch) ) + offset + texcoord_tiling ; // 假开关 不产生分支消耗 但会增加无用节点
 
@@ -32,6 +32,7 @@ float2 texcoord_clamp = {(lerp(texcoord_offset.x,saturate(texcoord_offset.x),in_
 float2 texcoord_output = texcoord_clamp + in_noise ;
  
 return texcoord_output ;
+ 
  
 ```
 
