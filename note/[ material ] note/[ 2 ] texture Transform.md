@@ -24,7 +24,7 @@ float2 texcoord_tiling = tiling * ( ( texcoord_rotate - in_rotate_center ) * sca
 
 float2 offset_dir = { ( sin(frac(in_rotate) * 6.283 )) , ( cos(frac(in_rotate) * 6.283 )) } ;
  
-float2 texcoord_offset = ( offset_dir * lerp(panner * in_time,panner,in_panner_switch) ) + offset + texcoord_tiling ; // 假开关 不产生分支消耗 但会增加无用节点
+float2 texcoord_offset = ( offset_dir * lerp(panner * in_time,panner, saturate ( in_panner_switch ) ) ) + offset + texcoord_tiling ; // 假开关 不产生分支消耗 但会增加无用节点
 
 // saturate clamp
 float2 texcoord_clamp = {(lerp(texcoord_offset.x,saturate(texcoord_offset.x),in_clamp_x)),(lerp(texcoord_offset.y,saturate(texcoord_offset.y),in_clamp_y))} ;
